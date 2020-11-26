@@ -42,6 +42,10 @@ class User < ApplicationRecord
     favorite = favorites.find_by(micropost_id: micropost.id)
     favorite.destroy if favorite
   end
+  
+  def favorites?(micropost)
+    self.favorite_microposts.include?(micropost)
+  end
 end
 
 # undefined local variable or method `user1' for main:Object
